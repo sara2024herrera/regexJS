@@ -1,0 +1,160 @@
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8; /* Aumenta el interlineado para mejor lectura */
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 2.8em; /* Aumenta el tamaño del encabezado */
+}
+
+header p {
+    font-size: 1.4em; /* Aumenta el tamaño del texto del encabezado */
+}
+
+/* Navegación */
+nav {
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Cambia el color del texto a blanco */
+    padding: 10px 20px;
+    border: 2px solid #fff; /* Cambia el borde a blanco */
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #fff; /* Cambia el fondo a blanco al hacer hover */
+    color: #333; /* Cambia el color del texto a gris oscuro */
+}
+
+/* Contenido principal */
+main {
+    background-color: #fff;
+    padding: 30px; /* Aumenta el padding para más espacio */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Aumenta la sombra para más profundidad */
+    max-width: 900px;
+    width: 100%;
+}
+
+main h2 {
+    margin-bottom: 15px;
+    font-size: 2em; /* Aumenta el tamaño del subtítulo */
+}
+
+main p, main ul {
+    margin-bottom: 20px;
+    font-size: 1.2em; /* Aumenta el tamaño del texto */
+    line-height: 1.8; /* Mantiene el interlineado */
+}
+
+main ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* Pie de página */
+footer {
+    margin-top: 20px;
+    color: #666;
+    text-align: center;
+    width: 100%;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header h1 {
+        font-size: 2.4em; /* Ajusta el tamaño del encabezado en pantallas pequeñas */
+    }
+
+    header p {
+        font-size: 1.4em; /* Ajusta el tamaño del texto del encabezado en pantallas pequeñas */
+    }
+
+    main h2 {
+        font-size: 1.8em; /* Ajusta el tamaño del subtítulo en pantallas pequeñas */
+    }
+
+    main p, main ul {
+        font-size: 1.1em; /* Ajusta el tamaño del texto en pantallas pequeñas */
+    }
+
+    
+}
+
+/* Navegación */
+nav {
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000; /* Cambia el color del texto a blanco */
+    padding: 15px 30px; /* Aumenta el padding para botones más grandes */
+    font-size: 1.2em; /* Aumenta el tamaño de la fuente */
+    border: 2px solid #fff; /* Cambia el borde a blanco */
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #fff; /* Cambia el fondo a blanco al hacer hover */
+    color: #333; /* Cambia el color del texto a gris oscuro */
+}
+h4 {
+    font-size: 2em; /* Tamaño del h4, ajusta según necesites */
+    margin-bottom: 15px; /* Agrega un margen inferior para separación */
+    color: #333; /* Color del texto del h4 */
+}

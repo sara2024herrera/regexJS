@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compilador Regex Simple</title>
+    <style>
+        /* Reseteo básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        /* Navegación */
+        nav {
+            margin: 20px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Contenido principal */
+        main {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        main h2 {
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        main p, main ul {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        main ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            width: 100%;
+        }
+
+        /* Pie de página */
+        footer {
+            margin-top: 20px;
+            color: #666;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            main h2 {
+                font-size: 1.6em;
+            }
+
+            main p, main ul {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Compilador Regex Simple</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <!-- Aquí puedes añadir los enlaces de navegación si los tienes -->
+        </ul>
+    </nav>
+
+    <main>
+        <label for="regex">Expresión Regular:</label>
+        <textarea id="regex" placeholder="Introduce tu expresión regular aquí..."></textarea>
+        
+        <label for="text">Texto a Probar:</label>
+        <textarea id="text" placeholder="Introduce el texto para probar..."></textarea>
+        
+        <button onclick="testRegex()">Probar Regex</button>
+        
+        <div class="result" id="result"></div>
+    </main>
+
+    <footer>
+        <!-- Aquí puedes añadir información del pie de página si lo deseas -->
+    </footer>
+
+    <script src="regex-compiler.js"></script>
+</body>
+</html>

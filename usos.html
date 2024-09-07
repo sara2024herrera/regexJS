@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresiones Regulares - Guía Técnica</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Expresiones Regulares: Guía Técnica</h1>
+        <p>Un recorrido técnico por la creación y lógica de las expresiones regulares</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Introducción</a></li>
+            <li><a href="historia.html">Historia</a></li>
+            <li><a href="usos.html" class="active">Usos</a></li>
+            <li><a href="Ejemplo.html">Ejemplo</a></li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <section id="usos">
+            <h2>¿Qué es una Expresión Regular?</h2>
+            <p>Las expresiones regulares (regex) son secuencias de caracteres que forman un patrón de búsqueda. Este patrón se utiliza para realizar operaciones de búsqueda, validación, y sustitución sobre cadenas de texto.</p>
+
+            <h3>Lógica de las Expresiones Regulares</h3>
+            <p>Las expresiones regulares siguen una lógica de patrones basada en ciertos operadores fundamentales que permiten construir búsquedas complejas. A continuación, explicamos algunos de los operadores más utilizados:</p>
+
+            <h4>1. Disyunción (<code>|</code>)</h4>
+            <p>El operador de disyunción, representado por <code>|</code>, permite especificar alternativas dentro de un patrón. Se puede pensar como un "o lógico" que separa diferentes opciones.</p>
+            <pre><code>
+Ejemplo: (carro|auto)
+            </code></pre>
+            <p>Este patrón coincidirá con cualquier cadena que contenga la palabra "carro" o "auto". Es útil para crear variaciones dentro de una búsqueda.</p>
+
+            <h4>2. Estrella de Kleene (<code>*</code>)</h4>
+            <p>La estrella de Kleene, representada por <code>*</code>, indica que el elemento que la precede puede aparecer cero o más veces. Es una herramienta poderosa cuando quieres permitir repeticiones ilimitadas.</p>
+            <pre><code>
+Ejemplo: a*
+            </code></pre>
+            <p>Este patrón coincidirá con una cadena que contenga cero o más caracteres "a". Por ejemplo, coincidirá con "", "a", "aa", "aaa", etc.</p>
+
+            <h4>3. Más (<code>+</code>)</h4>
+            <p>El operador <code>+</code> es similar a la estrella de Kleene, pero exige que el elemento aparezca al menos una vez. Es decir, "uno o más" en lugar de "cero o más".</p>
+            <pre><code>
+Ejemplo: a+
+            </code></pre>
+            <p>Este patrón coincidirá con una cadena que contenga una o más letras "a". No coincidirá con una cadena vacía, pero sí con "a", "aa", "aaa", etc.</p>
+
+            <h4>4. Opcional (<code>?</code>)</h4>
+            <p>El operador <code>?</code> permite que el elemento que lo precede sea opcional, es decir, puede aparecer una vez o no aparecer en absoluto.</p>
+            <pre><code>
+Ejemplo: colou?r
+            </code></pre>
+            <p>Este patrón coincidirá con "color" o "colour", lo que es útil para manejar variaciones en el lenguaje (por ejemplo, inglés británico vs. inglés americano).</p>
+
+            <h3>Uso de Corchetes (<code>[]</code>)</h3>
+            <p>Los corchetes en las expresiones regulares se usan para definir un conjunto de caracteres posibles. Permiten que cualquier carácter dentro de los corchetes coincida con la cadena.</p>
+            <pre><code>
+Ejemplo: [abc]
+            </code></pre>
+            <p>Este patrón coincidirá con cualquier cadena que contenga una "a", "b" o "c". También se pueden definir rangos:</p>
+            <pre><code>
+Ejemplo: [a-z]
+            </code></pre>
+            <p>Esto coincidirá con cualquier letra minúscula entre "a" y "z". Para coincidir con números, puedes hacer algo similar:</p>
+            <pre><code>
+Ejemplo: [0-9]
+            </code></pre>
+            <p>Esto coincidirá con cualquier dígito entre 0 y 9.</p>
+
+            <h3>Uso de Paréntesis (<code>()</code>)</h3>
+            <p>Los paréntesis en las expresiones regulares sirven para agrupar partes de una expresión. Esto es útil tanto para aplicar operadores a grupos como para capturar partes específicas del texto.</p>
+            <pre><code>
+Ejemplo: (abc)+
+            </code></pre>
+            <p>Este patrón coincidirá con una o más secuencias de "abc" (por ejemplo, "abc", "abcabc", "abcabcabc").</p>
+
+            <h3>Secuencias Escapadas (<code>\</code>)</h3>
+            <p>Algunos caracteres tienen significados especiales en las expresiones regulares (como <code>.</code>, <code>+</code>, <code>*</code>, etc.). Si quieres buscar estos caracteres literalmente, necesitas "escaparlos" con una barra invertida <code>\</code>.</p>
+            <pre><code>
+Ejemplo: \.
+            </code></pre>
+            <p>Este patrón coincidirá con el carácter de punto literal ".", no con cualquier carácter (que es lo que haría un punto sin escape).</p>
+
+            <h4>Ejemplo Completo: Validación de un Correo Electrónico</h4>
+            <p>Una expresión regular común para validar un correo electrónico podría ser la siguiente:</p>
+            <pre><code>
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            </code></pre>
+            <ul>
+                <li><code>^[a-zA-Z0-9._-]+</code>: Comienza la cadena con uno o más caracteres alfanuméricos, puntos, guiones bajos o guiones.</li>
+                <li><code>@</code>: Requiere un símbolo de arroba.</li>
+                <li><code>[a-zA-Z0-9.-]+</code>: Sigue con uno o más caracteres alfanuméricos, puntos o guiones.</li>
+                <li><code>\.[a-zA-Z]{2,6}$</code>: Finalmente, una extensión de dominio con 2 a 6 letras.</li>
+            </ul>
+
+            <h3>Más Ejemplos Útiles</h3>
+            <h4>1. Validación de Contraseñas Seguras</h4>
+            <p>Una expresión regular para validar una contraseña segura (mínimo 8 caracteres, incluyendo al menos una letra mayúscula, una minúscula, un número y un carácter especial):</p>
+            <pre><code>
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+            </code></pre>
+            <ul>
+                <li><code>(?=.*[a-z])</code>: Asegura que haya al menos una letra minúscula.</li>
+                <li><code>(?=.*[A-Z])</code>: Asegura que haya al menos una letra mayúscula.</li>
+                <li><code>(?=.*\d)</code>: Asegura que haya al menos un número.</li>
+                <li><code>(?=.*[\W_])</code>: Asegura que haya al menos un carácter especial (cualquier cosa que no sea una letra o número).</li>
+                <li><code>.{8,}</code>: Asegura que la longitud total sea de al menos 8 caracteres.</li>
+            </ul>
+
+            <h4>2. Validación de Números de Teléfono</h4>
+            <p>Para validar un número de teléfono internacional:</p>
+            <pre><code>
+const phoneRegex = /^\+?(\d{1,3})?[-.\s]?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})$/;
+            </code></pre>
+            <p>Este patrón admite números de teléfono con o sin el código de país, y con varios separadores posibles (espacios, puntos, guiones).</p>
+
+            <h4>3. Validación de Fechas (Formato DD/MM/YYYY)</h4>
+            <p>Una expresión regular para validar una fecha en formato <code>dd/mm/yyyy</code>:</p>
+            <pre><code>
+const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/\d{4}$/;
+            </code></pre>
+            <p>Este patrón asegura que el día esté entre 01 y 31, el mes entre 01 y 12, y el año sea de 4 dígitos.</p>
+
+            <h3>Guía de Expresiones Regulares Útiles</h3>
+            <p>Las expresiones regulares pueden parecer complicadas al principio, pero una vez que entiendes su estructura básica, puedes aplicarlas para resolver muchas tareas comunes. A continuación se presenta una guía con ejemplos útiles de regex para diferentes escenarios:</p>
+
+            <h4>1. Validación de Correo Electrónico</h4>
+            <p>Para validar correos electrónicos, puedes usar una expresión regular que siga un patrón estándar:</p>
+            <pre><code>
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            </code></pre>
+            <p>Este patrón permite validar correos electrónicos asegurándose de que tengan un nombre de usuario, un dominio, y una extensión de entre 2 y 6 caracteres.</p>
+
+            <h4>2. Validación de Números de Teléfono</h4>
+            <p>Para validar números de teléfono (ej. de 10 dígitos en formato internacional):</p>
+            <pre><code>
+const phoneRegex = /^\+?(\d{1,3})?[-.\s]?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})$/;
+            </code></pre>
+            <p>Este patrón permite validar números con o sin el código de país, y con diversos separadores como espacios, puntos o guiones.</p>
+
+            <h4>3. Validación de Contraseñas Seguras</h4>
+            <p>Para una contraseña que contenga al menos 8 caracteres, una letra mayúscula, una minúscula, un número y un carácter especial:</p>
+            <pre><code>
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+            </code></pre>
+            <p>Este patrón valida una contraseña segura y asegura que cumpla con los requisitos de seguridad.</p>
+
+            <h4>4. Validación de Códigos Postales</h4>
+            <p>Para validar códigos postales (ej. de EE.UU.):</p>
+            <pre><code>
+const zipRegex = /^\d{5}(-\d{4})?$/;
+            </code></pre>
+            <p>Este patrón acepta un código postal de 5 dígitos o 9 dígitos si incluye el formato extendido (XXXXX-XXXX).</p>
+
+            <h4>5. Validación de Fechas (Formato DD/MM/YYYY)</h4>
+            <p>Para validar una fecha en formato día/mes/año:</p>
+            <pre><code>
+const dateRegex = /^(0[1-9]|[12][0-9]|3[01])[-\/](0[1-9]|1[012])[-\/](19|20)\d\d$/;
+            </code></pre>
+            <p>Este patrón asegura que el formato de la fecha sea correcto y considera las limitaciones de los días y meses.</p>
+
+            <h4>6. Búsqueda de Palabras en un Texto</h4>
+            <p>Para buscar una palabra específica en una cadena de texto, independientemente de mayúsculas o minúsculas:</p>
+            <pre><code>
+const searchRegex = /palabra/i;
+            </code></pre>
+            <p>Este patrón buscará la palabra "palabra" en el texto, sin importar si está en mayúsculas o minúsculas.</p>
+
+            <h4>7. Reemplazo de Múltiples Espacios por un Solo Espacio</h4>
+            <p>Para eliminar espacios extra y dejar solo un espacio entre palabras:</p>
+            <pre><code>
+const cleanText = text.replace(/\s+/g, ' ');
+            </code></pre>
+            <p>Este patrón reemplaza cualquier cantidad de espacios consecutivos con un solo espacio.</p>
+
+            <h4>8. Separación de Nombres y Apellidos</h4>
+            <p>Para separar nombres y apellidos en una cadena de texto:</p>
+            <pre><code>
+const nameRegex = /^(\w+)\s+(\w+)$/;
+            </code></pre>
+            <p>Este patrón captura el nombre y apellido y los separa en grupos.</p>
+
+            <h3>Consejos Útiles para el Uso de Expresiones Regulares</h3>
+            <ul>
+                <li>Usa modificadores como <code>/g</code> para búsquedas globales, <code>/i</code> para búsquedas insensibles a mayúsculas, y <code>/m</code> para tratar cadenas multilínea.</li>
+                <li>Los paréntesis <code>()</code> se utilizan para agrupar partes de la expresión, y los corchetes <code>[]</code> para definir conjuntos de caracteres permitidos.</li>
+                <li>Los caracteres especiales como <code>.</code>, <code>*</code>, <code>+</code>, <code>?</code> y <code>\</code> tienen significados especiales en regex. Si quieres buscar uno de estos caracteres literalmente, escápalos con <code>\</code>.</li>
+                <li>Usa <code>|</code> para alternativas; por ejemplo, <code>(carro|auto)</code> buscará "carro" o "auto".</li>
+                <li>Explora los "lookaheads" y "lookbehinds" para patrones más avanzados donde el contexto es importante.</li>
+            </ul>
+
+            <h3>Conclusión</h3>
+            <p>Las expresiones regulares son increíblemente poderosas para manipular texto y validar entradas en el desarrollo web. Su versatilidad y capacidad para simplificar tareas comunes las hacen esenciales en el toolkit de cualquier desarrollador. ¡Sigue practicando y explorando nuevos patrones para dominarlas!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Blog sobre Expresiones Regulares SDHM Desarrollo Web</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresiones Regulares - Introducción</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Expresiones Regulares (Regex)</h1>
+        <p>Todo lo que necesitas saber sobre las expresiones regulares</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Introducción</a></li>
+            <li><a href="historia.html">Historia</a></li>
+            <li><a href="usos.html">Usos</a></li>
+            <li><a href="Ejemplo.html">Ejemplo</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="introduccion">
+            <h2>¿Qué son las Expresiones Regulares?</h2>
+            <p>Las expresiones regulares, comúnmente abreviadas como regex o regexp, son secuencias de caracteres que forman un patrón de búsqueda. En términos simples, son un conjunto de reglas o instrucciones usadas para buscar, identificar y manipular cadenas de texto de manera eficiente...</p>
+            <p>Una expresión regular es básicamente una forma de definir un lenguaje formal o patrón de texto que se puede usar para hacer coincidir o procesar cadenas de caracteres. Están compuestas por caracteres literales y metacaracteres que tienen significados específicos.</p>
+
+            <h2>¿Cómo se Usan las Expresiones Regulares?</h2>
+            <p>Las expresiones regulares se utilizan en combinación con funciones específicas que proporcionan los lenguajes de programación o herramientas de procesamiento de texto...</p>
+            
+            <ul>
+                <li>Búsqueda de patrones: Verificar si un texto contiene un patrón específico.</li>
+                <li>Extracción de datos: Capturar y extraer partes del texto que coinciden con el patrón.</li>
+                <li>Sustitución: Reemplazar partes de un texto que coinciden con un patrón por otros valores.</li>
+                <li>División: Dividir una cadena de texto en partes basadas en un patrón específico.</li>
+            </ul>
+            
+            <h2>Estructura y Componentes</h2>
+            <p>Las expresiones regulares están compuestas de varios componentes que pueden ser combinados para formar patrones complejos:</p>
+            <ul>
+                <li><b>Metacaracteres:</b> Son caracteres con un significado especial...</li>
+                <li><b>Grupos y Capturas:</b> Los paréntesis () se utilizan para agrupar partes de un patrón...</li>
+                <li><b>Escapado de Caracteres:</b> Para usar un metacaracter como literal, se debe escapar con \.</li>
+            </ul>
+
+            <h2>Caracteres y Abreviaturas para Conjuntos de Caracteres</h2>
+            <ul>
+                <li><strong>c</strong>: Representa el carácter literal c, excepto si es un metacarácter.</li>
+                <li><strong>\c</strong>: Un carácter precedido de \ se corresponde con ese carácter en sí.</li>
+                <li><strong>\a</strong>: Equivale al carácter ASCII de campana (BEL, 0x07).</li>
+                <li><strong>\f</strong>: Equivale al carácter ASCII de salto de página (FF, 0x0C).</li>
+                <li><strong>\n</strong>: Equivale al carácter ASCII de nueva línea (LF, 0x0A).</li>
+                <li><strong>\r</strong>: Equivale al carácter ASCII de retorno de carro (CR, 0x0D).</li>
+                <li><strong>\t</strong>: Equivale al carácter ASCII de tabulador horizontal (HT, 0x09).</li>
+                <li><strong>\v</strong>: Equivale al carácter ASCII de tabulador vertical (VT, 0x0B).</li>
+                <li><strong>\xhhhh</strong>: Equivale al carácter Unicode correspondiente al número hexadecimal hhhh.</li>
+                <li><strong>.</strong> (dot): Equivale a cualquier carácter.</li>
+                <li><strong>\d</strong>: Equivale a un dígito.</li>
+                <li><strong>\D</strong>: Equivale a un no-dígito.</li>
+                <li><strong>\s</strong>: Equivale a un espacio en blanco.</li>
+                <li><strong>\S</strong>: Equivale a un no-espacio en blanco.</li>
+                <li><strong>\w</strong>: Equivale a un carácter (dígito o letra).</li>
+                <li><strong>\W</strong>: Equivale a un no-carácter (no dígito ni letra).</li>
+            </ul>
+        
+            <h2>Conjuntos de Caracteres</h2>
+            <ul>
+                <li><strong>^</strong>: Niega el conjunto de caracteres cuando es el primer carácter en los corchetes. Ejemplo: <code>[^abc]</code>.</li>
+                <li><strong>-</strong>: Indica un rango de caracteres. Ejemplo: <code>[W-Z]</code>.</li>
+            </ul>
+        
+            <h2>Cuantificadores</h2>
+            <ul>
+                <li><strong>E?</strong>: Genera cero o una ocurrencia de E.</li>
+                <li><strong>E+</strong>: Genera una o más ocurrencias de E.</li>
+                <li><strong>E*</strong>: Genera cero o más ocurrencias de E.</li>
+                <li><strong>E{n}</strong>: Genera exactamente n ocurrencias de E.</li>
+                <li><strong>E{n,}</strong>: Genera al menos n ocurrencias de E.</li>
+                <li><strong>E{n,m}</strong>: Genera entre n y m ocurrencias de E.</li>
+            </ul>
+        
+            <h2>Metacaracteres</h2>
+            <ul>
+                <li><strong>^</strong>: Indica comienzo de la cadena.</li>
+                <li><strong>$</strong>: Indica fin de cadena.</li>
+                <li><strong>\b</strong>: Límite de palabra.</li>
+                <li><strong>\B</strong>: No-límite de palabra.</li>
+                <li><strong>(?=E)</strong>: Aserción positiva (genera coincidencia si E sigue).</li>
+                <li><strong>(?!E)</strong>: Aserción negativa (genera coincidencia si E no sigue).</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Blog sobre Expresiones Regulares SDHM Desarrollo Web</p>
+    </footer>
+</body>
+</html>

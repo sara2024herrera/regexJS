@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Validación de Correo Electrónico</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlaza con el archivo de estilos existente -->
+    <style>
+        /* Estilos para bloques de código */
+        pre {
+            background-color: #333;
+            color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap; /* Para que las líneas largas se ajusten */
+            margin-bottom: 20px;
+        }
+        code {
+            color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ejemplo de Validación de Correo Electrónico</h1>
+        <p>Comparación entre validación con condicionales y expresiones regulares</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="historia.html">Historia</a></li>
+            <li><a href="usos.html">Usos</a></li>
+            <li><a href="Ejemplo.html" class="active">Ejemplo</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Código Sin Regex (Con Condicionales)</h2>
+        <pre><code>const emailValue = "example@example.com";
+
+// Validar que el correo electrónico tenga una sola '@' y un punto después
+const atSymbolIndex = emailValue.indexOf('@');
+const dotSymbolIndex = emailValue.indexOf('.', atSymbolIndex);
+
+if (atSymbolIndex > 0 && dotSymbolIndex > atSymbolIndex + 1 && dotSymbolIndex < emailValue.length - 1) {
+    // Verificar que no haya espacios en blanco
+    const noSpaces = !emailValue.includes(' ');
+    if (noSpaces) {
+        console.log('Correo electrónico válido');
+    } else {
+        console.log('El correo electrónico no debe contener espacios.');
+    }
+} else {
+    console.log('Por favor, ingresa un correo electrónico válido.');
+}</code></pre>
+
+        <h3>Ventajas y Desventajas</h3>
+        <h4>Ventajas:</h4>
+        <ul>
+            <li>Simplicidad Inicial: El código parece más simple porque se basa en condiciones básicas.</li>
+        </ul>
+
+        <h4>Desventajas:</h4>
+        <ul>
+            <li>Limitaciones en Validación: Este enfoque no cubre todos los casos válidos de correos electrónicos.</li>
+            <li>Mantenimiento y Escalabilidad: A medida que los requisitos cambian o se vuelven más complejos, agregar más validaciones puede hacer que el código se vuelva más difícil de manejar.</li>
+        </ul>
+
+        <h2>Código con Regex</h2>
+        <pre><code>const emailValue = "example@example.com";
+
+// Expresión regular para validar correos electrónicos
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+if (emailRegex.test(emailValue)) {
+    console.log('Correo electrónico válido');
+} else {
+    console.log('Por favor, ingresa un correo electrónico válido.');
+}</code></pre>
+
+        <h3>Ventajas y Desventajas</h3>
+        <h4>Ventajas:</h4>
+        <ul>
+            <li>Validación Completa: Las expresiones regulares permiten realizar una validación mucho más precisa y robusta.</li>
+            <li>Concisión: El código es más conciso y legible.</li>
+            <li>Flexibilidad y Escalabilidad: Las expresiones regulares se pueden ajustar fácilmente.</li>
+            <li>Estandarización: Utilizar regex es un estándar común en la validación de patrones.</li>
+        </ul>
+
+        <h4>Desventajas:</h4>
+        <ul>
+            <li>Complejidad Inicial: La sintaxis de regex puede parecer complicada al principio.</li>
+        </ul>
+
+        <h2>Conclusión</h2>
+        <p>Aunque el código basado en condicionales puede parecer más simple al principio, las expresiones regulares ofrecen una solución más robusta y flexible para la validación de patrones. La regex proporciona una validación más completa con menos líneas de código y es una herramienta poderosa para manejar validaciones complejas de manera eficiente.</p>
+        <h3>Métodos Factibles en JavaScript</h3>
+        <p>A continuación, se presentan métodos útiles en JavaScript:</p>
+
+        <h4>Métodos para Objetos RegExp (Expresiones Regulares)</h4>
+        <ul>
+            <li><strong>test()</strong>: Verifica si una cadena coincide con el patrón de la expresión regular.</li>
+            <pre><code>const regex = /abc/;
+console.log(regex.test("abcdef")); // true</code></pre>
+            <li><strong>exec()</strong>: Ejecuta una búsqueda de una cadena con una expresión regular y devuelve un array con los resultados.</li>
+            <pre><code>const regex = /(\d+)/;
+const result = regex.exec("The number is 123");
+console.log(result); // ["123", "123"]</code></pre>
+        </ul>
+
+        <h4>Métodos para Cadenas (String)</h4>
+        <ul>
+            <li><strong>match()</strong>: Busca coincidencias de una expresión regular en una cadena y devuelve un array con las coincidencias.</li>
+            <pre><code>const str = "The number is 123 and 456";
+const matches = str.match(/\d+/g);
+console.log(matches); // ["123", "456"]</code></pre>
+            <li><strong>replace()</strong>: Reemplaza coincidencias de una expresión regular en una cadena con un nuevo valor.</li>
+            <pre><code>const str = "The number is 123";
+const newStr = str.replace(/\d+/, "456");
+console.log(newStr); // "The number is 456"</code></pre>
+            <li><strong>search()</strong>: Busca la primera coincidencia de una expresión regular en una cadena y devuelve el índice de la primera coincidencia.</li>
+            <pre><code>const str = "The number is 123";
+const index = str.search(/\d+/);
+console.log(index); // 15</code></pre>
+            <li><strong>split()</strong>: Divide una cadena en un array usando una expresión regular como delimitador.</li>
+            <pre><code>const str = "apple,banana,cherry";
+const fruits = str.split(/,/);
+console.log(fruits); // ["apple", "banana", "cherry"]</code></pre>
+            <li><strong>trim()</strong>: Elimina los espacios en blanco al principio y al final de una cadena.</li>
+            <pre><code>const str = "   Hello, World!   ";
+console.log(str.trim()); // "Hello, World!"</code></pre>
+        </ul>
+
+        <h4>Métodos para Arrays (Array)</h4>
+        <ul>
+            <li><strong>forEach()</strong>: Ejecuta una función en cada elemento del array.</li>
+            <pre><code>const arr = [1, 2, 3];
+arr.forEach(num => console.log(num)); // 1 2 3</code></pre>
+            <li><strong>map()</strong>: Crea un nuevo array con los resultados de aplicar una función a cada elemento del array original.</li>
+            <pre><code>const arr = [1, 2, 3];
+const doubled = arr.map(num => num * 2);
+console.log(doubled); // [2, 4, 6]</code></pre>
+            <li><strong>filter()</strong>: Crea un nuevo array con todos los elementos que pasan una prueba dada.</li>
+            <pre><code>const arr = [1, 2, 3, 4];
+const even = arr.filter(num => num % 2 === 0);
+console.log(even); // [2, 4]</code></pre>
+            <li><strong>reduce()</strong>: Aplica una función acumulativa a cada elemento del array, de izquierda a derecha, para reducirlo a un único valor.</li>
+            <pre><code>const arr = [1, 2, 3, 4];
+const sum = arr.reduce((acc, num) => acc + num, 0);
+console.log(sum); // 10</code></pre>
+            <li><strong>find()</strong>: Devuelve el primer elemento del array que cumple con una función de prueba.</li>
+            <pre><code>const arr = [5, 12, 8, 130, 44];
+const found = arr.find(num => num > 10);
+console.log(found); // 12</code></pre>
+        </ul>
+
+        <h4>Métodos para Objetos (Object)</h4>
+        <ul>
+            <li><strong>keys()</strong>: Devuelve un array con las claves de un objeto.</li>
+            <pre><code>const obj = { a: 1, b: 2, c: 3 };
+console.log(Object.keys(obj)); // ["a", "b", "c"]</code></pre>
+            <li><strong>values()</strong>: Devuelve un array con los valores de un objeto.</li>
+            <pre><code>const obj = { a: 1, b: 2, c: 3 };
+console.log(Object.values(obj)); // [1, 2, 3]</code></pre>
+            <li><strong>entries()</strong>: Devuelve un array con pares [clave, valor] de un objeto.</li>
+            <pre><code>const obj = { a: 1, b: 2, c: 3 };
+console.log(Object.entries(obj)); // [["a", 1], ["b", 2], ["c", 3]]</code></pre>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy;2024 Blog sobre Expresiones Regulares SDHM Desarrollo Web</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresiones Regulares - Historia</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Expresiones Regulares (Regex)</h1>
+        <p>Todo lo que necesitas saber sobre las expresiones regulares</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Introducción</a></li>
+            <li><a href="historia.html" class="active">Historia</a></li>
+            <li><a href="usos.html">Usos</a></li>
+            <li><a href="Ejemplo.html">Ejemplo</a></li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <section id="historia">
+            <h2>Historia y Origen de las Expresiones Regulares</h2>
+            <p>Las expresiones regulares tienen su origen en la teoría de lenguajes formales y autómatas desarrollada por el matemático Stephen Cole Kleene en la década de 1950...</p>
+            
+            <h3>1. Orígenes Matemáticos y Teóricos</h3>
+            <p>Las expresiones regulares tienen sus raíces en la teoría de lenguajes formales y autómatas, un área de estudio dentro de las matemáticas y la informática teórica. Los conceptos iniciales fueron desarrollados por el matemático estadounidense Stephen Cole Kleene en la década de 1950. Kleene introdujo el término "regular sets" para describir ciertos tipos de lenguajes que podían ser reconocidos por autómatas finitos, y formalizó la notación para describir estos lenguajes, a la que llamó expresiones regulares.</p>
+            <p>Kleene estaba interesado en la lógica matemática y en cómo modelar el comportamiento de los sistemas de procesamiento de información. Sus ideas fueron fundamentales para el desarrollo de la teoría de autómatas y lenguajes formales, que son la base para muchos conceptos modernos en informática.</p>
+
+            <h3>2. Primeras Implementaciones Prácticas</h3>
+            <p>Las primeras aplicaciones prácticas de las expresiones regulares surgieron en el campo de la bioinformática y el análisis de datos. Sin embargo, su adopción más significativa comenzó con su integración en herramientas de procesamiento de texto en sistemas informáticos.</p>
+            <ul>
+                <li><strong>Década de 1960:</strong> El matemático y programador Ken Thompson adaptó las expresiones regulares para su uso en la búsqueda de patrones en archivos de texto en el sistema operativo Unix. Thompson implementó un editor de texto llamado ed, el cual fue uno de los primeros en usar expresiones regulares para buscar y reemplazar texto de manera eficiente. Esto marcó el comienzo de la relación entre las expresiones regulares y los sistemas Unix.</li>
+                <li><strong>grep (1973):</strong> La popularidad de las expresiones regulares se disparó con la introducción del comando grep (Global Regular Expression Print) en Unix, creado por Ken Thompson. grep permitió a los usuarios buscar patrones en grandes archivos de texto de forma rápida y eficiente utilizando expresiones regulares. Esta herramienta sigue siendo ampliamente utilizada hoy en día.</li>
+            </ul>
+
+            <h3>3. Expansión y Uso en Lenguajes de Programación</h3>
+            <p>A medida que la informática avanzaba, las expresiones regulares fueron incorporándose en muchos lenguajes de programación, lo que facilitó su uso para desarrolladores y analistas de datos.</p>
+            <ul>
+                <li><strong>Perl (1987):</strong> El lenguaje de programación Perl, creado por Larry Wall, fue uno de los primeros en incluir soporte integrado para expresiones regulares como parte de su sintaxis. Perl popularizó el uso de regex debido a su facilidad de uso y su poderosa capacidad para manipular texto. Los regex en Perl influyeron en otros lenguajes de programación y en el desarrollo de patrones compatibles con Perl (PCRE), que se utilizan en muchos entornos hoy en día.</li>
+                <li><strong>Otros Lenguajes:</strong> Tras Perl, otros lenguajes de programación como Python, Java, JavaScript, y Ruby adoptaron soporte para expresiones regulares, haciendo uso de bibliotecas o integrando la funcionalidad directamente en el lenguaje. Esto expandió enormemente el uso de expresiones regulares en el desarrollo de software, especialmente para tareas de procesamiento de texto y análisis de datos.</li>
+            </ul>
+
+            <h3>4. Uso en el Desarrollo Web y Herramientas de Software</h3>
+            <p>Con el crecimiento de la web y la demanda de procesamiento de datos en línea, las expresiones regulares encontraron su lugar en el desarrollo web:</p>
+            <ul>
+                <li><strong>Validación de formularios web:</strong> Las expresiones regulares se utilizan para validar entradas de usuarios, como correos electrónicos, números de teléfono, y otros datos, asegurando que la información ingresada cumpla con los formatos esperados.</li>
+                <li><strong>Herramientas de búsqueda y edición de texto:</strong> Editores de texto avanzados como vi, vim, y emacs integraron soporte para regex, permitiendo a los desarrolladores buscar y modificar código y texto con gran flexibilidad.</li>
+                <li><strong>Lenguajes de script:</strong> Herramientas de scripting como sed y awk en Unix hacen uso extensivo de expresiones regulares para filtrar y procesar texto en flujos de datos.</li>
+            </ul>
+
+            <h3>5. Evolución y Estándares Modernos</h3>
+            <p>Con el tiempo, las expresiones regulares han evolucionado para incluir nuevas funcionalidades y mejorar su rendimiento:</p>
+            <ul>
+                <li><strong>Estándares POSIX:</strong> Para asegurar la compatibilidad entre diferentes sistemas, se desarrollaron estándares para regex en sistemas Unix y Linux, conocidos como POSIX (Portable Operating System Interface). Esto ayudó a unificar la sintaxis y el comportamiento de las expresiones regulares en diversas herramientas y plataformas.</li>
+                <li><strong>PCRE (Perl Compatible Regular Expressions):</strong> Con el objetivo de proporcionar una sintaxis y funcionalidad de regex más avanzada, las PCRE se introdujeron, ofreciendo soporte para patrones más complejos y características adicionales como lookaheads, lookbehinds, y patrones no-greedy.</li>
+                <li><strong>Frameworks y Librerías Modernas:</strong> En la actualidad, existen numerosas librerías y frameworks que implementan expresiones regulares de manera eficiente en distintos lenguajes de programación. Esto incluye librerías como re en Python, Regex en C#, y el motor de regex en JavaScript.</li>
+            </ul>
+
+            <h3>6. Importancia en la Actualidad</h3>
+            <p>Hoy en día, las expresiones regulares son una herramienta estándar en la programación y análisis de datos. Son esenciales para tareas como:</p>
+            <ul>
+                <li><strong>Extracción de información:</strong> Permiten extraer datos específicos de grandes volúmenes de texto, como registros de log, documentos, y páginas web.</li>
+                <li><strong>Manipulación de texto:</strong> Facilitan la edición y transformación de texto, como reformateo de fechas, normalización de datos, y corrección de errores tipográficos.</li>
+                <li><strong>Seguridad y Validación:</strong> Son fundamentales para validar entradas de usuario en aplicaciones web, ayudando a prevenir ataques de inyección de código y otros problemas de seguridad.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Blog sobre Expresiones Regulares SDHM Desarrollo Web</p>
+    </footer>
+</body>
+</html>
